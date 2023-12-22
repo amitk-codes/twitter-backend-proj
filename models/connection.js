@@ -12,7 +12,6 @@ const Connections = mongoose.model('connection', connectionSchema)
 function validateConnection(input) {
   // Using joi library for backend validations
   const joiSchema = JOI.object({
-    followedBy: JOI.string().required(),
     followedTo: JOI.string().required()
   })
   return joiSchema.validate(input)
