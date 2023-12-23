@@ -8,12 +8,11 @@ const messageSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 })
 
-const Messages = mongoose.model(messageSchema)
+const Messages = mongoose.model("message", messageSchema)
 
 function validateMessage(input) {
   // using joi for backend validations
   const joiSchema = JOI.object({
-    user: JOI.string().required(),
     content: JOI.string().required()
   })
   return joiSchema.validate(input)
