@@ -37,7 +37,7 @@ async function loginController(req, res) {
   const toSendUserDetails = omitPasswordKey(searchedUser)
   // removing the password property from searchedUser to avoid security leaks
 
-  res.setHeader('Authorization', 'Bearer ' + token);
+  res.setHeader('Authorization', token);
   res.status(200).send({
     message: 'User logged In',
     responseData: {
