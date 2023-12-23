@@ -6,7 +6,7 @@ const _ = require('lodash')
 const auth = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, process.env.secretkey)
+    const decoded = jwt.verify(token, process.env.SECRET_KEY)
     let user = await Users.findOne({ _id: decoded._id })
 
     user = _.omit(JSON.parse(JSON.stringify(user)), ['password'])
@@ -22,4 +22,4 @@ const auth = async (req, res, next) => {
 
 }
 
-module.exports = auth
+module.exports.auth = auth
