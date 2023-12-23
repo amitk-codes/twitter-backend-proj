@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const JOI = require('joi')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+// ----------------------------------
 const { emailRegex } = require('../utils/constants')
 
 const userSchema = new mongoose.Schema({
