@@ -8,11 +8,11 @@ async function signupController(req, res) {
   const { name, email, password } = req.body
 
   const { error } = validateUser(req.body)
-  if (error) return res.status(400).json({ message: error.message })
+  if (error) return res.status(400).send({ message: error.message })
   // validation check 
 
   let searchedUser = await Users.findOne({ email })
-  if (searchedUser) return res.status(400).json({ message: 'Email is already used' })
+  if (searchedUser) return res.status(400).send({ message: 'Email is already used' })
 
   const createdUser = new Users({ name, email, password })
   await createdUser.save()

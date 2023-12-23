@@ -18,7 +18,7 @@ const auth = async (req, res, next) => {
     next()
   } catch (err) {
     console.log('auth error', err)
-    return res.status(401).json({ message: 'Not Authorised to perform this task' })
+    return res.status(401).send({ message: 'Not Authorised to perform this task' })
   }
 
 }
